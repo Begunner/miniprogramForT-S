@@ -1,0 +1,13 @@
+<!--pages/teacherHomework/teacherHomework.wxml-->
+<view class="upload"><button bindtap="upload">上传作业</button></view>
+
+<view class="homeworkList" wx:for="{{homework}}" wx:key="hwid">
+  <view class="homeworkTerm">
+  <text wx:if="{{item.condition=='进行中'}}">{{item.hwName}}进行中</text>
+  <text wx:if="{{item.condition=='已完成'}}">{{item.hwName}}已完成</text>
+  <button bindtap="" disabled="{{item.condition=='已完成'}}">修改</button>
+  <button bindtap="del" data-hwid="{{item.hwid}}">删除</button>
+  <button bindtap="toHwCorrection" disabled="{{item.condition=='进行中'}}" data-hwid="{{item.hwid}}">批改</button>
+  <button bindtap="toTeaHwDetail" disabled="{{item.condition=='进行中'}}" data-hwid="{{item.hwid}}">作业分析</button>
+  </view>
+</view>

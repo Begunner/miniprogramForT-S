@@ -17,7 +17,6 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <button bindtap="goToStu">我是学生</button>
+  <button bindtap="goToTea">我是老师</button>
 </view>
