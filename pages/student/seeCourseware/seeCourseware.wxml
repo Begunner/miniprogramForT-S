@@ -1,1 +1,6 @@
-<text>待完成\n此处使用微信接口对ppt、pdf等文件进行预览</text>
+<l-capsule-bar  title="课件"
+			    status-bar-color="rgb(242, 242, 242)"
+				title-bar-color="rgb(242, 242, 242)">
+</l-capsule-bar>
+
+<text>待完成\n此处使用微信接口对ppt、pdf等文件进行预览\n此外，还应实现标题处显示课件名称的功能</text>

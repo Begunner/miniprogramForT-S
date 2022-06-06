@@ -1,2 +1,33 @@
-<!--pages/student/doHomework/doHomework.wxml-->
-<text>pages/student/doHomework/doHomework.wxml</text>
+<l-capsule-bar  title="作业"
+			    status-bar-color="rgb(242, 242, 242)"
+				title-bar-color="rgb(242, 242, 242)">
+</l-capsule-bar>
+
+<view class="exercise" wx:for="{{exercises}}" wx:key="cid">
+    <text class="question">{{item.question}}</text>
+    <view wx:if="{{item.category=='singleObjective'}}">
+        <l-radio-group>
+            <view wx:for="{{item.choices}}" wx:key="cid">
+                <l-radio key="{{item.choiceNumber}}">
+                    <text class="singleChoice">{{item.choiceNumber}}.{{item.choice}}</text>
+                </l-radio>
+            </view>
+        </l-radio-group>
+    </view>
+    <view wx:elif="{{item.category=='multipleObjective'}}">
+        <l-checkbox-group bind:linchange="onChangeTap" >
+            <view wx:for="{{item.choices}}" wx:key="cid">
+                <l-checkbox placement="left" key="{{item.choiceNumber}}">
+                    <text class="multipleChoice">{{item.choiceNumber}}.{{item.choice}}</text>
+                </l-checkbox>
+            </view>
+        </l-checkbox-group>
+    </view>
+    <view wx:elif="{{item.category=='subjective'}}">
+        <view class="studentAnswers" wx:for="{{item.answers}}" wx:key="cid">
+            <input class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="{{item.answer}}"/>
+        </view>
+    </view>
+</view>
+
+<l-button class="submit">提交</l-button>
