@@ -1,0 +1,22 @@
+{
+  "name": "miniprogramfort-s",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Begunner/miniprogramForT-S.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Begunner/miniprogramForT-S/issues"
+  },
+  "homepage": "https://github.com/Begunner/miniprogramForT-S#readme",
+  "dependencies": {
+    "lin-ui": "^0.9.10"
+  }
+}
