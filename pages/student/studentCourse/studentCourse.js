@@ -9,12 +9,12 @@ Page({
                  {cid:1,courseName:"数学",teacher:"数学老师",start:"2022.5.23",end:"2023.5.23"}], 
                 //含有courseName,cid
     },
-    goToSee() {
+    goToCW() {
         wx.navigateTo({
             url: '/pages/student/courseware/courseware'
         })
     },
-    goToDo() {
+    goToHW() {
         wx.navigateTo({
             url: '/pages/student/homework/homework'
         })

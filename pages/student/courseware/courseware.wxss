@@ -1,1 +1,18 @@
-/* pages/student/courseware/courseware.wxss */
+.coursewareName {
+    font-size: small;
+    color: black;
+}
+
+.coursewareIcon {
+    float: left;
+    margin-right: 3px;
+}
+
+.aCoursewareInOneDay {
+    margin: 12px;
+}
+
+.seeCW {
+    float: right;
+    margin: 2px;
+}

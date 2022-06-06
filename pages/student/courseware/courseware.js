@@ -1,66 +1,21 @@
-// pages/student/courseware/courseware.js
+const app = getApp()
+
+import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
+
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
+        coursewares:[
+            {date:"5月27日",cwInThisDay:[{name:"课件1"},{name:"课件2"}]},
+            {date:"5月26日",cwInThisDay:[{name:"课件1"}]},
+            {date:"5月25日",cwInThisDay:[{name:"课件1"}]},
+            {date:"5月24日",cwInThisDay:[{name:"课件1"}]}
+        ]
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    
+    goToSee(){
+        wx.navigateTo({
+            url: '/pages/student/seeCourseware/seeCourseware',
+        })
     }
 })

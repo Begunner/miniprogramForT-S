@@ -11,7 +11,7 @@
 		<text class="teacher"> {{item.teacher}}</text>
 		<text class="dateInformation">\n起止时间: </text>
 		<text class="courseDate">{{item.start}}-{{item.end}}\n</text>
-		<l-button class="jumpButton" bindtap="goToSee">课件</l-button>
-		<l-button class="jumpButton" bindtap="goToDo">作业</l-button>
+		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
+		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
 	</view>
 </view>

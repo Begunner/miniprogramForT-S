@@ -1,2 +1,23 @@
-<!--pages/student/homework/homework.wxml-->
-<text>pages/student/homework/homework.wxml</text>
+<l-capsule-bar  title="作业"
+			    status-bar-color="rgb(242, 242, 242)"
+				title-bar-color="rgb(242, 242, 242)">
+</l-capsule-bar>
+
+<view style="display: flex;margin-top:7rpx ;">
+      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+</view>
+<l-collapse class="homeworkList" wx:for="{{homeworks}}" wx:for-item="hwInOneDay">
+  <l-collapse-item class="homeworkDate" title="{{hwInOneDay.date}}">
+    <view style="display: flex;margin-top:7rpx ;">
+      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+    </view>
+    <view class="aHomeworkInOneDay" wx:for="{{hwInOneDay.hwInThisDay}}" wx:for-item="homework">
+        <l-icon class="homeworkIcon" name="order"/>
+        <text class="homeworkName">{{homework.name}}</text>
+        <l-button class="seeHW" bindtap="goToDo" size="mini">查看</l-button>
+    </view>
+    </l-collapse-item>
+    <view style="display: flex;margin-top:7rpx ;">
+        <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+    </view>
+</l-collapse>
