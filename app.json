@@ -4,7 +4,7 @@
     "pages/logs/logs",
     "pages/teacher/teacher",
     "pages/teacherCourse/teacherCourse",
-    "pages/student/student",
+    "pages/student/studentCourse/studentCourse",
     "pages/teacherHomework/teacherHomework",
     "pages/teacherCourseware/teacherCourseware",
     "pages/coursewarePreview/coursewarePreview",
@@ -18,5 +18,10 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+
+  "usingComponents":{
+    "l-button":"/miniprogram_npm/lin-ui/button/index",
+    "l-capsule-bar":"/miniprogram_npm/lin-ui/capsule-bar/index"
+  }
 }

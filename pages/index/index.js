@@ -1,9 +1,10 @@
-// index.js
-// 获取应用实例
 const app = getApp()
+
+import deviceUtil from "../../miniprogram_npm/lin-ui/utils/device-util"
 
 Page({
   data: {
+    capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -51,7 +52,7 @@ Page({
   },
   goToStu(){
     wx.navigateTo({
-      url: '/pages/student/student',
+      url: '/pages/student/studentCourse/studentCourse',
     })
   }
 })

@@ -1,4 +1,10 @@
 /**app.wxss**/
+
+/*背景颜色为灰色*/
+page {
+  background-color: rgb(242, 242, 242);
+}
+/*默认设置*/
 .container {
   height: 100%;
   display: flex;

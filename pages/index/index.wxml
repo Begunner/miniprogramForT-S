@@ -1,4 +1,8 @@
-<!--index.wxml-->
+<l-capsule-bar  title="作业提交助手"
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)">
+</l-capsule-bar>
+
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
@@ -17,6 +21,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <button bindtap="goToStu">我是学生</button>
-  <button bindtap="goToTea">我是老师</button>
+  <!--选择身份-->
+  <button class="bigButton" bindtap="goToStu" type="primary">我是学生</button>
+  <button class="bigButton" bindtap="goToTea" type="primary">我是老师</button>
 </view>

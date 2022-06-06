@@ -1,6 +1,13 @@
 // app.js
-App({
 
+import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util"
+
+App({
+  /*获取Capsular高度*/
+  getNavigationBarHeight() {
+    const capsuleBarHeight = deviceUtil.getNavigationBarHeight()
+    console.log(`CapsuleBar 的高度为${capsuleBarHeight}rpx`)
+},
 
   onLaunch() {
     // 展示本地存储能力
