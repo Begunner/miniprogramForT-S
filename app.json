@@ -1,27 +1,29 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/teacher/teacher",
-    "pages/teacherCourse/teacherCourse",
-    "pages/student/studentCourse/studentCourse",
-    "pages/teacherHomework/teacherHomework",
-    "pages/teacherCourseware/teacherCourseware",
-    "pages/coursewarePreview/coursewarePreview",
-    "pages/teacherHwDetail/teacherHwDetail",
-    "pages/hwCorrection/hwCorrection"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-
-  "usingComponents":{
-    "l-button":"/miniprogram_npm/lin-ui/button/index",
-    "l-capsule-bar":"/miniprogram_npm/lin-ui/capsule-bar/index"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/teacher/teacher",
+        "pages/teacherCourse/teacherCourse",
+        "pages/student/studentCourse/studentCourse",
+        "pages/teacherHomework/teacherHomework",
+        "pages/teacherCourseware/teacherCourseware",
+        "pages/coursewarePreview/coursewarePreview",
+        "pages/teacherHwDetail/teacherHwDetail",
+        "pages/hwCorrection/hwCorrection",
+        "pages/student/courseware/courseware",
+        "pages/student/homework/homework"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "l-button": "/miniprogram_npm/lin-ui/button/index",
+        "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+        "l-capsule-bar": "/miniprogram_npm/lin-ui/capsule-bar/index"
+    }
 }

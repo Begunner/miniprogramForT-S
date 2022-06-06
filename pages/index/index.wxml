@@ -22,6 +22,6 @@
     </block>
   </view>
   <!--选择身份-->
-  <button class="bigButton" bindtap="goToStu" type="primary">我是学生</button>
-  <button class="bigButton" bindtap="goToTea" type="primary">我是老师</button>
+  <button class="bigButton" bindtap="goToStu">我是学生</button>
+  <button class="bigButton" bindtap="goToTea">我是老师</button>
 </view>

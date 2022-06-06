@@ -3,4 +3,15 @@
 				title-bar-color="rgb(242, 242, 242)">
 </l-capsule-bar>
 
-<view>这里有东西</view>
+<view class="courseList">
+	<view class="course" wx:for="{{courses}}" wx:key="cid">
+		<text class="nameInformation">课程: </text>
+		<text class="courseName">{{item.courseName}} </text>
+		<l-icon class="teacherIcon" name="user" size="30" color="#3a63bd"/>
+		<text class="teacher"> {{item.teacher}}</text>
+		<text class="dateInformation">\n起止时间: </text>
+		<text class="courseDate">{{item.start}}-{{item.end}}\n</text>
+		<l-button class="jumpButton" bindtap="goToSee">课件</l-button>
+		<l-button class="jumpButton" bindtap="goToDo">作业</l-button>
+	</view>
+</view>

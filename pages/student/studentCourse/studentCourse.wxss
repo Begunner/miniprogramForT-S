@@ -1,0 +1,48 @@
+.course {
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 4rpx 4rpx 10rpx lightgrey;
+    border-radius: 5px;
+}
+
+.courseName {
+    font-weight: bold;
+}
+
+.teacherIcon {
+    margin: 2px;
+    float: right;
+}
+
+.teacher {
+    font-size: small;
+    color: grey;
+    float: right;
+}
+
+.courseDate {
+    font-size: small;
+}
+
+.nameInformation {
+    color:grey;
+}
+
+.dateInformation {
+    color:grey;
+    font-size: small;
+}
+
+.jumpButton {
+    font-weight: normal;
+    margin: 2px;
+}
+
+.jump {
+    font-weight: normal;
+    margin: 5px;
+    box-shadow: 2rpx 2rpx 5rpx grey;
+    color: #f8f9fb;
+    background-color: #3a63bd;
+  }

@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   color: black;
-  font-weight: bold;
 }
 
 .userinfo-avatar {
@@ -20,6 +19,9 @@
 }
 
 .bigButton {
+  font-weight: normal;
   margin: 5px;
   box-shadow: 2rpx 2rpx 5rpx grey;
+  color: #f8f9fb;
+  background-color: #3a63bd;
 }
