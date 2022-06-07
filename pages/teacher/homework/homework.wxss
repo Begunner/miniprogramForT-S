@@ -1,1 +1,24 @@
-/* pages/teacher/homework/homework.wxss */
+.homeworkName {
+    font-size: small;
+    color: black;
+}
+
+.homeworkIcon {
+    float: left;
+    margin-right: 3px;
+}
+
+.aHomeworkInOneDay {
+    margin: 15px;
+}
+
+.operateHW {
+    float: right;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.add {
+    float: right;
+    margin: 5px;
+}

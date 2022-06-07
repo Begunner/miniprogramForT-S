@@ -36,7 +36,12 @@
     background-color: #3a63bd;
   }
 
+.deleteButton {
+    float: right;
+    box-shadow: 2rpx 2rpx 5rpx grey;
+}
+
 .add {
     float: right;
-    margin: 10px;
+    margin-right: 10px;
 }

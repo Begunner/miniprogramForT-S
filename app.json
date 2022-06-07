@@ -2,7 +2,6 @@
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
-        "pages/teacherCourse/teacherCourse",
         "pages/student/studentCourse/studentCourse",
         "pages/student/courseware/courseware",
         "pages/student/homework/homework",
@@ -10,7 +9,11 @@
         "pages/student/doHomework/doHomework",
         "pages/teacher/teacherCourse/teacherCourse",
         "pages/teacher/homework/homework",
-        "pages/teacher/courseware/courseware"
+        "pages/teacher/courseware/courseware",
+        "pages/teacher/HwStatics/HwStatics",
+        "pages/teacher/seeCourseware/seeCourseware",
+        "pages/teacher/setHomework/setHomework",
+        "pages/teacher/hwCorrection/hwCorrection"
     ],
     "window": {
         "backgroundTextStyle": "light",

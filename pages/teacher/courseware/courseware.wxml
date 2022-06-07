@@ -1,2 +1,27 @@
-<!--pages/teacher/courseware/courseware.wxml-->
-<text>pages/teacher/courseware/courseware.wxml</text>
+<l-capsule-bar  title="课件"
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/index/index">
+</l-capsule-bar>
+
+<view style="display: flex;margin-top:7rpx ;">
+      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+</view>
+<l-collapse class="courseList" wx:for="{{coursewares}}" wx:key="cid" wx:for-item="cwInOneDay">
+    <l-collapse-item class="courseDate" title="{{cwInOneDay.date}}" >
+    <view style="display: flex;margin-top:7rpx ;">
+      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+    </view>
+    <view class="aCoursewareInOneDay" wx:for="{{cwInOneDay.cwInThisDay}}" wx:key="cid" wx:for-item="courseware">
+        <l-icon class="coursewareIcon" name="order"/>
+        <text class="coursewareName">{{courseware.name}}</text>
+        <l-button class="operateCW" type="error" size="mini">删除</l-button>
+        <l-button class="operateCW" bindtap="goToSee" size="mini">查看</l-button>
+    </view>
+    </l-collapse-item>
+    <view style="display: flex;margin-top:7rpx ;">
+      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+    </view>
+</l-collapse>
+
+<l-button class="add">上传新课件</l-button>
