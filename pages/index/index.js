@@ -41,7 +41,7 @@ Page({
   },
   goToTea(){
     wx.navigateTo({
-      url: '/pages/teacher/teacher',
+      url: '/pages/teacher/teacherCourse/teacherCourse',
     })
   },
   goToStu(){

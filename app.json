@@ -2,18 +2,15 @@
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
-        "pages/teacher/teacher",
         "pages/teacherCourse/teacherCourse",
         "pages/student/studentCourse/studentCourse",
-        "pages/teacherHomework/teacherHomework",
-        "pages/teacherCourseware/teacherCourseware",
-        "pages/coursewarePreview/coursewarePreview",
-        "pages/teacherHwDetail/teacherHwDetail",
-        "pages/hwCorrection/hwCorrection",
         "pages/student/courseware/courseware",
         "pages/student/homework/homework",
         "pages/student/seeCourseware/seeCourseware",
-        "pages/student/doHomework/doHomework"
+        "pages/student/doHomework/doHomework",
+        "pages/teacher/teacherCourse/teacherCourse",
+        "pages/teacher/homework/homework",
+        "pages/teacher/courseware/courseware"
     ],
     "window": {
         "backgroundTextStyle": "light",

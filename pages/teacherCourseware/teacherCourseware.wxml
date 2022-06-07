@@ -1,6 +1,0 @@
-<!--pages/teacherCourseware/teacherCourseware.wxml-->
-<view class="upload"><button bindtap="upload">上传课件</button></view>
-
-<view class="coursewareList" wx:for="{{courseware}}" wx:key="cwid">
-<button class="coursewareTerm" bindtap="toTheCourseware" data-item="{{item}}">{{item.cwName}}</button>
-</view>

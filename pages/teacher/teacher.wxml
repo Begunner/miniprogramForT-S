@@ -1,4 +1,0 @@
-<!--pages/teacher/teacher.wxml-->
-<view class="teacherCourse" wx:for="{{courses}}" wx:key="cid">
-<button class="courseButton" bindtap="toTheCourse" data-cid="{{item.cid}}">{{item.courseName}}</button>
-</view>

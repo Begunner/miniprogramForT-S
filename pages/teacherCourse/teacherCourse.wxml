@@ -1,6 +1,0 @@
-<!--pages/teacherCourse/teacherCourse.wxml-->
-<view>
-<button class="functionalButton" bindtap="toTheCourseware">课件</button>
-<button class="functionalButton" bindtap="toTheHomework">作业</button>
-</view>
-

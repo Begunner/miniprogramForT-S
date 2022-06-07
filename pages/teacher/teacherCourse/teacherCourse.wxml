@@ -1,0 +1,18 @@
+<l-capsule-bar  title="我的课程"
+			    status-bar-color="rgb(242, 242, 242)"
+				title-bar-color="rgb(242, 242, 242)"
+				home-page="/pages/index/index">
+</l-capsule-bar>
+
+<view class="courseList">
+	<view class="course" wx:for="{{courses}}" wx:key="cid">
+		<text class="nameInformation">课程: </text>
+		<text class="courseName">{{item.courseName}} </text>
+		<text class="dateInformation">\n起止时间: </text>
+		<text class="courseDate">{{item.start}}-{{item.end}}\n</text>
+		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
+		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
+	</view>
+</view>
+
+<l-button class="add">添加课程</l-button>
