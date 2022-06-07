@@ -13,8 +13,11 @@ Page({
               category: "multipleObjective",
               choices:[{choiceNumber:"A",choice:"1"},{choiceNumber:"B",choice:"2"},{choiceNumber:"C",choice:"3"},        {choiceNumber:"D",choice:"4"}] },
             { question: "3.小明家离学校有200米，写出小明学校的全称和小明的上学方式。",
-              category: "subjective",
-              answers:[{answer:"学校全程"},{answer:"上学方式"}] }
+              category: "typingSubjective",
+              answers:[{answer:"学校全程"},{answer:"上学方式"}] },
+            { question: "4.请上传两张你的微笑。",
+              category: "imageSubjective",
+              answers:[{answer:"图片1"},{answer:"图片2"}] }
         ]
     }
 })

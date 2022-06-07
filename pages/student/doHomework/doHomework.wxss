@@ -20,10 +20,19 @@
     font-size: medium;
 }
 
+.checkAnswers {
+    margin: 2px;
+}
+
 .studentAnswers {
     height: 27px;
     margin: 5px;
     padding: 3px;
+    box-shadow: 2rpx 2rpx 5rpx grey;
+}
+
+.studentImages {
+    margin: 2px;
     box-shadow: 2rpx 2rpx 5rpx grey;
 }
 

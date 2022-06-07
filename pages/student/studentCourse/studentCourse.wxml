@@ -1,6 +1,7 @@
 <l-capsule-bar  title="我的课程"
 			    status-bar-color="rgb(242, 242, 242)"
-				title-bar-color="rgb(242, 242, 242)">
+				title-bar-color="rgb(242, 242, 242)"
+				home-page="/pages/index/index">
 </l-capsule-bar>
 
 <view class="courseList">

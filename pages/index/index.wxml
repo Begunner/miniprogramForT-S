@@ -1,12 +1,13 @@
 <l-capsule-bar  title="作业提交助手"
 			          status-bar-color="rgb(242, 242, 242)"
-				        title-bar-color="rgb(242, 242, 242)">
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/index/index">
 </l-capsule-bar>
 
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
+      <view class="userinfo-avatar">
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>

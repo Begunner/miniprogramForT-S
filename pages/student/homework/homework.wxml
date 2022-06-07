@@ -1,6 +1,7 @@
 <l-capsule-bar  title="作业"
-			    status-bar-color="rgb(242, 242, 242)"
-				title-bar-color="rgb(242, 242, 242)">
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/index/index">
 </l-capsule-bar>
 
 <view style="display: flex;margin-top:7rpx ;">
