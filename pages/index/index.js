@@ -10,8 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    defalutAccount: "123",
-    defaultName: "123"
+    defaultUid: 2
   },
   onLoad() {
     if (wx.getUserProfile) {
@@ -49,8 +48,7 @@ Page({
       url: 'http://localhost:8080/course/get-by-teacher',
       method: 'GET',
       data:{
-        account: this.defalutAccount,
-        name: this.defaultName
+        uid: this.defaultUid
       },
       success: function(res){
         console.log(res.data);
