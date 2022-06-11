@@ -44,16 +44,6 @@ Page({
     wx.navigateTo({
       url: '/pages/teacher/teacherCourse/teacherCourse',
     })
-    wx.request({
-      url: 'http://localhost:8080/course/get-by-teacher',
-      method: 'GET',
-      data:{
-        uid: this.defaultUid
-      },
-      success: function(res){
-        console.log(res.data);
-      }
-    })
   },
   goToStu(){
     wx.navigateTo({

@@ -18,5 +18,17 @@ Page({
         wx.navigateTo({
             url: '/pages/teacher/homework/homework'
         })
+    },
+    onLoad() {
+        wx.request({
+            url: app.globalData.defaultUrl + '/course/get-by-teacher',
+            method: 'GET',
+            data:{
+              uid: this.defaultUid
+            },
+            success: function(res){
+              console.log(res.data);
+            }
+          })
     }
 })

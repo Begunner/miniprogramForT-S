@@ -3,6 +3,9 @@
 import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util"
 
 App({
+  globalData: {
+    defaultUrl: "http://localhost:8080"
+  },
   /*获取Capsular高度*/
   getNavigationBarHeight() {
     const capsuleBarHeight = deviceUtil.getNavigationBarHeight()
