@@ -5,12 +5,11 @@
 </l-capsule-bar>
 
 <view class="courseList">
-	<view class="course" wx:for="{{courses}}" wx:key="cid">
+	<view class="course" wx:for="{{resData}}" wx:key="cid">
 		<text class="nameInformation">课程: </text>
-		<text class="courseName">{{item.courseName}} </text>
+		<text class="courseName">{{item.name}} </text>
 		<l-button class="deleteButton" type="error" size="mini">删除</l-button>
-		<text class="dateInformation">\n起止时间: </text>
-		<text class="courseDate">{{item.start}}-{{item.end}}\n</text>
+		<text> \n </text>
 		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
 		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
 	</view>
