@@ -3,9 +3,7 @@
 import deviceUtil from "/miniprogram_npm/lin-ui/utils/device-util"
 
 App({
-  globalData: {
-    ourUrl: false
-  },
+  /*全局变量*/
 
   /*获取Capsular高度*/
   getNavigationBarHeight() {

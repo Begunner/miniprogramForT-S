@@ -12,7 +12,8 @@
 		<text> \n </text>
 		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
 		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
+		<l-button class="deleteButton" type="success" size="mini">生成选课码</l-button>
 	</view>
 </view>
 
-<l-button class="add">添加课程</l-button>
+<l-button class="add" bindtap="addCourse">添加课程</l-button>

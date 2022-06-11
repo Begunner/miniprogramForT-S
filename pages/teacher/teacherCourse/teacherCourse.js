@@ -8,8 +8,7 @@ Page({
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
         courses:[{cid:0,courseName:"体育",teacher:"数学老师",start:"2022.5.23",end:"2023.5.23"},
                  {cid:1,courseName:"数学",teacher:"数学老师",start:"2022.5.23",end:"2023.5.23"}], 
-        defaultUid: 2,
-        //返回数据
+        //实际用数据
         resData: {}
     },
     goToCW() {
@@ -37,5 +36,8 @@ Page({
               console.log(res.data)
             }
           })
+    },
+    addCourse(){
+
     }
 })
