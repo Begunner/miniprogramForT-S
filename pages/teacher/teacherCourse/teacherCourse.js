@@ -20,6 +20,8 @@ Page({
         })
     },
     onLoad() {
+        var app = getApp();
+        console.log(app.globalData.ourUrl);
         wx.request({
             url: app.globalData.defaultUrl + '/course/get-by-teacher',
             method: 'GET',
