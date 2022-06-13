@@ -8,7 +8,8 @@
 	<view class="course" wx:for="{{resData}}" wx:key="cid">
 		<text class="nameInformation">课程: </text>
 		<text class="courseName">{{item.name}} </text>
-		<l-button class="deleteButton" type="error" size="mini">删除</l-button>
+		<l-button class="deleteButton" type="error" size="mini"
+		          data-index="{{item.cid}}" bindtap="deleteCourse">删除</l-button>
 		<text> \n </text>
 		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
 		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
@@ -17,3 +18,13 @@
 </view>
 
 <l-button class="add" bindtap="addCourse">添加课程</l-button>
+
+<text> \n </text>
+<text> \n </text>
+
+<view wx:if="{{addCourse}}">
+	<form bindsubmit="submitNewCourse">
+		<input class="inputNewCourseName" name="courseName" placeholder="课程名称"/>
+		<button class='submitCourse' formType="submit">确定</button>
+	</form>
+</view>
