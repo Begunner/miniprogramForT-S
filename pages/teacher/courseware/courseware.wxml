@@ -1,7 +1,7 @@
 <l-capsule-bar  title="课件"
 			          status-bar-color="rgb(242, 242, 242)"
 				        title-bar-color="rgb(242, 242, 242)"
-                home-page="/pages/index/index">
+                home-page="/pages/teacher/teacherCourse/teacherCourse">
 </l-capsule-bar>
 
 <view style="display: flex;margin-top:7rpx ;">

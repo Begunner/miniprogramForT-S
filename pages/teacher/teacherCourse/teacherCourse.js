@@ -12,14 +12,16 @@ Page({
         addCourse: false,
         resData: {}
     },
-    goToCW() {
-        wx.navigateTo({
-            url: '/pages/teacher/courseware/courseware'
+    goToCW: function (e) {
+        var cid = e.target.dataset.index;
+        wx.redirectTo({
+            url: '/pages/teacher/courseware/courseware?courseId=' + cid
         })
     },
-    goToHW() {
-        wx.navigateTo({
-            url: '/pages/teacher/homework/homework'
+    goToHW: function (e) {
+        var cid = e.target.dataset.index;
+        wx.redirectTo({
+            url: '/pages/teacher/homework/homework?courseId=' + cid
         })
     },
     getTeacherCourse() {
@@ -66,17 +68,33 @@ Page({
         })
     },
     deleteCourse: function (e) {
+        let that=this;
         var cid = e.target.dataset.index;
-        wx.request({
-          url: 'http://localhost:8080/course/delete',
-          method: "DELETE",
-          data:{
-            courseID: cid
-          },
-          header:{
-            "content-type":"application/x-www-form-urlencoded"
-          }
+        wx.showModal({
+            title: '提示',
+            content: '确定要删除这个课程吗？',
+            success (res) {
+              if (res.confirm) {
+                wx.request({
+                    url: 'http://localhost:8080/course/delete',
+                    method: "DELETE",
+                    data:{
+                      courseID: cid
+                    },
+                    header:{
+                      "content-type":"application/x-www-form-urlencoded"
+                    }
+                  })
+                setTimeout(()=>{that.getTeacherCourse();}, 100);
+              }
+            }
+          })
+    },
+    selectCode:function(e){
+        var cid = e.target.dataset.index;
+        wx.showModal({
+            title: '提示',
+            content: '该课程的选课码是：' + cid
         })
-        setTimeout(()=>{this.getTeacherCourse();}, 100);
     }
 })

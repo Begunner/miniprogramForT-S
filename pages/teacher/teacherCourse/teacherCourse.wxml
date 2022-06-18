@@ -11,9 +11,10 @@
 		<l-button class="deleteButton" type="error" size="mini"
 		          data-index="{{item.cid}}" bindtap="deleteCourse">删除</l-button>
 		<text> \n </text>
-		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
-		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
-		<l-button class="deleteButton" type="success" size="mini">生成选课码</l-button>
+		<l-button class="jumpButton" bindtap="goToCW" data-index="{{item.cid}}">课件</l-button>
+		<l-button class="jumpButton" bindtap="goToHW" data-index="{{item.cid}}">作业</l-button>
+		<l-button class="deleteButton" type="success" size="mini"
+		          data-index="{{item.cid}}" bindtap="selectCode">生成选课码</l-button>
 	</view>
 </view>
 

@@ -12,6 +12,10 @@ Page({
             {date:"5月24日",cwInThisDay:[{name:"课件1"}]}
         ]
     },
+
+    onLoad (option){
+        console.log(option.courseId)
+    },
     
     goToSee(){
         wx.navigateTo({
