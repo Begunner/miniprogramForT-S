@@ -42,6 +42,11 @@ Page({
             addCourse: true
         })
     },
+    close(){
+      this.setData({
+        addCourse: false
+      })
+    },
     postTeacherCourse: function(newName){
         //创建新课程
         wx.request({

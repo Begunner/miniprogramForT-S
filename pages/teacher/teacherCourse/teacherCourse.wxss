@@ -4,7 +4,10 @@
     padding: 5px;
     box-shadow: 4rpx 4rpx 10rpx lightgrey;
     border-radius: 5px;
+    height: 180rpx;
 }
+
+
 
 .courseName {
     font-weight: bold;
@@ -38,10 +41,24 @@
 
 .deleteButton {
     float: right;
+    margin-right: 50rpx;
     box-shadow: 2rpx 2rpx 5rpx grey;
 }
 
 .add {
-    float: right;
-    margin-right: 10px;
+  margin-left: 520rpx;
+  
+}
+
+.higherRow{
+  margin-top: 10rpx;
+  height: 90rpx;
+}
+
+.adder{
+  margin-left: 30rpx;
+}
+
+.seperator{
+  margin-left: 20rpx;
 }

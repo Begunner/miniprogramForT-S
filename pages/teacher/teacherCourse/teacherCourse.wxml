@@ -4,28 +4,30 @@
 				home-page="/pages/index/index">
 </l-capsule-bar>
 
-<view class="courseList">
-	<view class="course" wx:for="{{resData}}" wx:key="cid">
-		<text class="nameInformation">课程: </text>
-		<text class="courseName">{{item.name}} </text>
-		<l-button class="deleteButton" type="error" size="mini"
-		          data-index="{{item.cid}}" bindtap="deleteCourse">删除</l-button>
-		<text> \n </text>
-		
-		<l-button class="jumpButton" bindtap="goToHW" data-index="{{item.cid}}">作业</l-button>
-		<l-button class="deleteButton" type="success" size="mini"
-		          data-index="{{item.cid}}" bindtap="selectCode">生成选课码</l-button>
-	</view>
-</view>
+<view class="adder">
 
 <l-button class="add" bindtap="addCourse">添加课程</l-button>
-
-<text> \n </text>
-<text> \n </text>
 
 <view wx:if="{{addCourse}}">
 	<form bindsubmit="submitNewCourse">
 		<input class="inputNewCourseName" name="courseName" placeholder="课程名称"/>
-		<button class='submitCourse' formType="submit">确定</button>
+		<l-button class='submitCourse' formType="submit">确定</l-button>
+    <l-button class='submitCourse' bindtap="close" style="margin-left: 10rpx;">取消</l-button>
 	</form>
+</view>
+</view>
+
+<view class="courseList">
+	<view class="course" wx:for="{{resData}}" wx:key="cid">
+    <view class="higherRow">
+      <text class="nameInformation">课程: </text>
+      <text class="courseName">{{item.name}} </text>
+      <l-button class="deleteButton" type="success" size="mini"
+		          data-index="{{item.cid}}" bindtap="selectCode">生成选课码</l-button>
+		</view>
+		<l-button class="deleteButton" type="error" size="mini"
+                data-index="{{item.cid}}" bindtap="deleteCourse">删除</l-button>
+		<l-button class="jumpButton" bindtap="goToHW" data-index="{{item.cid}}">作业</l-button>
+		
+	</view>
 </view>
