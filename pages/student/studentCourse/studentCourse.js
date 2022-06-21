@@ -11,11 +11,7 @@ Page({
         //实际数据
         resData: {}
     },
-    goToCW() {
-        wx.navigateTo({
-            url: '/pages/student/courseware/courseware'
-        })
-    },
+
     goToHW() {
         wx.navigateTo({
             url: '/pages/student/homework/homework'

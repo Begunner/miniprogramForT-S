@@ -12,12 +12,7 @@ Page({
         addCourse: false,
         resData: {}
     },
-    goToCW: function (e) {
-        var cid = e.target.dataset.index;
-        wx.redirectTo({
-            url: '/pages/teacher/courseware/courseware?courseId=' + cid
-        })
-    },
+    
     goToHW: function (e) {
         var cid = e.target.dataset.index;
         wx.redirectTo({
