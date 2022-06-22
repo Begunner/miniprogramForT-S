@@ -19,6 +19,7 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+    loginHomeworkAssistant()
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -40,13 +41,10 @@ Page({
       url: 'http://localhost:8080/user/get',
       method: 'GET',
       data:{
-        account: that.username
+        account: userInfo.nickName,
       },
       success: function(res){
-        console.log(res.data)
-        that.setData({
-           username: res.data.name
-        })
+        app.globalData.uid = res.data.uid
       },
       fail(){
         wx.request({
@@ -88,15 +86,16 @@ Page({
     })
   },
   add(){
+
     this.setData({
       isShowInput:false
     })
-    
+    var that=this
     wx.request({
       url: 'http://localhost:8080/user/change-name',
       method: "POST",
       data:{
-        username:username
+        username:that.username
       }
       
     })
