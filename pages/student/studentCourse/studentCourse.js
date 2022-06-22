@@ -12,12 +12,6 @@ Page({
         joinCourse: false,
         resData: {}
     },
-    goToCW: function (e) {
-        var cid = e.target.dataset.index;
-        wx.redirectTo({
-            url: '/pages/student/courseware/courseware?courseId=' + cid
-        })
-    },
     goToHW: function (e) {
         var cid = e.target.dataset.index;
         wx.redirectTo({
@@ -30,7 +24,7 @@ Page({
             url: 'http://localhost:8080/course/get-by-student',
             method: 'GET',
             data:{
-              uid: 2
+              uid: app.globalData.uid
             },
             success: function(res){
               that.setData({
@@ -53,7 +47,7 @@ Page({
             url: 'http://localhost:8080/user/join-as-student',
             method: 'POST',
             data:{
-              uid: 2,
+              uid: app.globalData.uid,
               cid: Cid
             }
         })

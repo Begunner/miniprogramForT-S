@@ -20,7 +20,8 @@
 		<l-icon class="teacherIcon" name="user" size="30" color="#3a63bd"/>
 		<text class="teacher"> {{item.teacher}}</text>
 		<text> \n </text>
-		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
-		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
+		<view class="jumpButton">
+			<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
+		</view>
 	</view>
 </view>

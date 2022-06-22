@@ -9,9 +9,23 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), 
+    nickName: 'default',
     username: '新同学',
     isShowInput: false
+  },
+  loginHomeworkAssistant(Account){
+    wx.request({
+      url: 'http://localhost:8080/user/get-by-account',
+      method: 'GET',
+      data:{
+        account: Account
+      },
+      success: function(res){
+        console.log(res.data)
+        app.globalData.uid = res.data.uid
+      }
+    })
   },
   onLoad() {
     if (wx.getUserProfile) {
@@ -19,7 +33,6 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    loginHomeworkAssistant()
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -27,34 +40,12 @@ Page({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         this.setData({
+          nickName: res.userInfo.nickName,
           username: res.userInfo.nickName,
           userInfo: res.userInfo,
           hasUserInfo: true,
         })
-      }
-    })
-  },
-  loginHomeworkAssistant(){
-    //登录
-    let that = this;
-    wx.request({
-      url: 'http://localhost:8080/user/get',
-      method: 'GET',
-      data:{
-        account: userInfo.nickName,
-      },
-      success: function(res){
-        app.globalData.uid = res.data.uid
-      },
-      fail(){
-        wx.request({
-            url: 'http://localhost:8080/user/add',
-            method: 'POST',
-            data:{
-              account: 'name',
-              name: 'testmemberMr.Lu'
-            }
-        })
+        this.loginHomeworkAssistant(res.userInfo.nickName);
       }
     })
   },

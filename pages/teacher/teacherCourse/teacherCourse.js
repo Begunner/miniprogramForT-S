@@ -25,7 +25,7 @@ Page({
             url: 'http://localhost:8080/course/get-by-teacher',
             method: 'GET',
             data:{
-              uid: 2
+              uid: app.globalData.uid
             },
             success: function(res){
               that.setData({
@@ -53,7 +53,7 @@ Page({
             url: 'http://localhost:8080/user/create',
             method: 'POST',
             data:{
-              uid: 2,
+              uid: app.globalData.uid,
               name: newName
             }
         })
