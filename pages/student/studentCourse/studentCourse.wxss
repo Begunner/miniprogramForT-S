@@ -46,3 +46,7 @@
     color: #f8f9fb;
     background-color: #3a63bd;
   }
+
+.add {
+    margin-left: 550rpx;
+  }
