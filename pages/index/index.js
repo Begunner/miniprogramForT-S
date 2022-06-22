@@ -10,7 +10,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    username: '新同学'
+    username: '新同学',
+    isShowInput: false
   },
   onLoad() {
     if (wx.getUserProfile) {
@@ -74,6 +75,30 @@ Page({
   goToStu(){
     wx.navigateTo({
       url: '/pages/student/studentCourse/studentCourse',
+    })
+  },
+  changeName(){
+    this.setData({
+      isShowInput:true
+    })
+  },
+  bindKeyInput: function(e) {
+    this.setData({
+      username: e.detail.value
+    })
+  },
+  add(){
+    this.setData({
+      isShowInput:false
+    })
+    
+    wx.request({
+      url: 'http://localhost:8080/user/change-name',
+      method: "POST",
+      data:{
+        username:username
+      }
+      
     })
   }
 })

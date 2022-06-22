@@ -1,7 +1,4 @@
-<l-capsule-bar  title="作业提交助手"
-			          status-bar-color="rgb(242, 242, 242)"
-				        title-bar-color="rgb(242, 242, 242)"
-                home-page="/pages/index/index">
+<l-capsule-bar title="作业提交助手" status-bar-color="rgb(242, 242, 242)" title-bar-color="rgb(242, 242, 242)" home-page="/pages/index/index">
 </l-capsule-bar>
 
 <view class="container">
@@ -12,6 +9,12 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{username}}</text>
+      <l-button bindtap="changeName">修改姓名</l-button>
+      <view class="input-section" wx:if="{{isShowInput}}">
+        <input class='input_input' model:value="{{username}}" focus="auto" placeholder="请输入内容" bindinput='bindKeyInput' bindblur="onHideInput" confirm-type="send" bindconfirm="sendTextMsg" />
+        
+          <l-button class="send_button" size="mini" bindtap="add">确定</l-button>
+      </view>
     </block>
   </view>
 </view>
