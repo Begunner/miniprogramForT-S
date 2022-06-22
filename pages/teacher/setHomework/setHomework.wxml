@@ -1,2 +1,21 @@
-<!--pages/teacher/setHomework/setHomework.wxml-->
-<text>pages/teacher/setHomework/setHomework.wxml</text>
+<l-capsule-bar  title="作业{{index}}"
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/teacher/teacherCourse/teacherCourse">
+</l-capsule-bar>
+
+<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
+    <text class="question">{{index+1}}. {{item.description}}</text>
+    <view wx:if="{{item.choiceNotBlank}}">
+        <l-radio-group>
+            <view wx:for="{{item.choices}}" wx:key="qid">
+                <l-radio key="{{item}}">
+                    <text class="singleChoice">{{item}}</text>
+                </l-radio>
+            </view>
+        </l-radio-group>
+    </view>
+    <view wx:else class="studentAnswers">
+            <input class="subjectiveAnswer"  bindinput="bindKeyInput"/>
+    </view>
+</view>

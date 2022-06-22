@@ -31,7 +31,7 @@
 
 .dateInformation {
     color:grey;
-    font-size: small;
+    font-size:smaller;
 }
 
 .jumpButton {

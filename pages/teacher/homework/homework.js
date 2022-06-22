@@ -18,7 +18,6 @@ Page({
     },
 
     onLoad (option){
-        console.log(option.courseId)
         this.cid = option.courseId
 
         let that=this;
@@ -27,12 +26,26 @@ Page({
             method: 'GET',
             data:{
               cid: that.cid,
-              date: "2022-6-11",
+              date: "",
               uid: 2
             },
             success: function(res){
-              console.log(res.data)
+              that.setData({
+                homeworkList: res.data
+              })
             }
+        })
+    },
+
+    add(){
+        //添加作业
+    },
+
+    setHomework: function (e) {
+        var index = e.target.dataset.index;
+        wx.redirectTo({
+            url: '/pages/teacher/setHomework/setHomework?homeworkIndex=' + (index+1)
+                  + '&courseId=' + this.cid
         })
     },
     

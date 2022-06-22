@@ -1,3 +1,5 @@
+@import "../../../pages/student/studentCourse/studentCourse.wxss";
+
 .homeworkName {
     font-size: small;
     color: black;

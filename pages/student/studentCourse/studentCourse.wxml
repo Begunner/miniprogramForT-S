@@ -23,5 +23,4 @@
 		<l-button class="jumpButton" bindtap="goToCW">课件</l-button>
 		<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
 	</view>
-
 </view>
