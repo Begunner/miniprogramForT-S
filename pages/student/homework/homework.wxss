@@ -1,3 +1,5 @@
+@import "../../../pages/student/studentCourse/studentCourse.wxss";
+
 .homeworkName {
     font-size: small;
     color: black;
@@ -15,4 +17,10 @@
 .seeHW {
     float: right;
     margin-bottom: 2px;
+}
+
+.doneInformation {
+    float: right;
+    color:grey;
+    font-size:smaller;
 }

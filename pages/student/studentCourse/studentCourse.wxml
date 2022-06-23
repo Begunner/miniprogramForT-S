@@ -21,7 +21,7 @@
 		<text class="teacher"> {{item.teacher}}</text>
 		<text> \n </text>
 		<view class="jumpButton">
-			<l-button class="jumpButton" bindtap="goToHW">作业</l-button>
+			<l-button class="jumpButton" bindtap="goToHW" data-index="{{item.cid}}">作业</l-button>
 		</view>
 	</view>
 </view>

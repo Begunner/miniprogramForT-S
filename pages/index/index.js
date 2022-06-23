@@ -22,7 +22,6 @@ Page({
         account: Account
       },
       success: function(res){
-        console.log(res.data)
         app.globalData.uid = res.data.uid
       }
     })

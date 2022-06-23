@@ -1,24 +1,15 @@
 <l-capsule-bar  title="作业"
 			          status-bar-color="rgb(242, 242, 242)"
 				        title-bar-color="rgb(242, 242, 242)"
-                home-page="/pages/index/index">
+                home-page="/pages/teacher/teacherCourse/teacherCourse">
 </l-capsule-bar>
 
-<view style="display: flex;margin-top:7rpx ;">
-      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
+<view class="courseList">
+	<view class="course" wx:for="{{homeworkList}}" wx:key="cid" wx:for-index="index">
+		<text class="courseName">作业{{index + 1}}</text>
+		<text class="dateInformation" wx:if="{{item.hascommited}}">已完成</text>
+		<text class="doneInformation" wx:else>未完成</text>
+    	<text class="dateInformation">\n发布时间：{{item.dateStr}}\n</text>
+		<l-button class="jumpButton" data-index="{{item.hid}}">答题</l-button>
+	</view>
 </view>
-<l-collapse class="homeworkList" wx:for="{{homeworks}}" wx:key="cid" wx:for-item="hwInOneDay">
-  <l-collapse-item class="homeworkDate" title="{{hwInOneDay.date}}">
-    <view style="display: flex;margin-top:7rpx ;">
-      <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
-    </view>
-    <view class="aHomeworkInOneDay" wx:for="{{hwInOneDay.hwInThisDay}}" wx:key="cid" wx:for-item="homework">
-        <l-icon class="homeworkIcon" name="order"/>
-        <text class="homeworkName">{{homework.name}}</text>
-        <l-button class="seeHW" bindtap="goToDo" size="mini">查看</l-button>
-    </view>
-    </l-collapse-item>
-    <view style="display: flex;margin-top:7rpx ;">
-        <view style="background-color: lightgray; width: 100%; height: 6rpx;"></view>
-    </view>
-</l-collapse>

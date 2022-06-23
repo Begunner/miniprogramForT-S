@@ -7,10 +7,10 @@
 <view class="courseList">
 	<view class="course" wx:for="{{homeworkList}}" wx:key="cid" wx:for-index="index">
 		<text class="courseName">作业{{index + 1}}\n</text>
-    <text class="dateInformation">发布时间：\n{{item.date}}\n</text>
-		<l-button class="jumpButton" bindtap="setHomework" data-index="{{index}}">修改</l-button>
-		<l-button class="jumpButton" type="error">删除</l-button>
+    <text class="dateInformation">发布时间：{{item.dateStr}}\n</text>
+		<l-button class="jumpButton" bindtap="setHomework" data-index="{{item.hid}}">修改</l-button>
+		<l-button class="jumpButton" type="error" bindtap="deleteHomework" data-index="{{item.hid}}">删除</l-button>
 	</view>
 </view>
 
-<l-button class="add">添加作业</l-button>
+<l-button class="add" bindtap="addHomework">添加作业</l-button>

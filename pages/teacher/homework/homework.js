@@ -1,6 +1,7 @@
 const app = getApp()
 
 import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
+var util = require('../../../utils/util.js')
 
 Page({
     data: {
@@ -18,8 +19,11 @@ Page({
     },
 
     onLoad (option){
-        this.cid = option.courseId
+        this.cid = option.courseId; 
+        this.requestHomework();
+    },
 
+    requestHomework(){
         let that=this;
         wx.request({
             url: 'http://localhost:8080/homework/get',
@@ -27,9 +31,10 @@ Page({
             data:{
               cid: that.cid,
               date: "",
-              uid: 2
+              uid: app.globalData.uid
             },
             success: function(res){
+                console.log(res.data)
               that.setData({
                 homeworkList: res.data
               })
@@ -53,5 +58,43 @@ Page({
         wx.navigateTo({
             url: '/pages/teacher/HwStatics/HwStatics',
         })
-    }
+    },
+
+    addHomework(){
+        let that = this;
+        wx.request({
+            url: 'http://localhost:8080/homework/add',
+            method: 'POST',
+            data:{
+              courseID: that.cid,
+              dateStr: new Date(),
+              courseName: "default"
+            }
+        })
+        setTimeout(()=>{this.requestHomework();}, 100);
+    },
+
+    deleteHomework: function (e) {
+        let that=this;
+        var hID = e.target.dataset.index;
+        wx.showModal({
+            title: '提示',
+            content: '确定要删除这个作业吗？',
+            success (res) {
+              if (res.confirm) {
+                wx.request({
+                    url: 'http://localhost:8080/homework/delete',
+                    method: "DELETE",
+                    data:{
+                      hid: hID
+                    },
+                    header:{
+                      "content-type":"application/x-www-form-urlencoded"
+                    }
+                  })
+                setTimeout(()=>{that.requestHomework();}, 100);
+              }
+            }
+          })
+    },
 })
