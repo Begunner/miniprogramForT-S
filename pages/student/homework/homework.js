@@ -31,7 +31,6 @@ Page({
               uid: app.globalData.uid
             },
             success: function(res){
-                console.log(res.data)
               that.setData({
                 homeworkList: res.data
               })
