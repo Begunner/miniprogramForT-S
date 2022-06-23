@@ -8,10 +8,12 @@
     </block>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname" bindtap="changeName">{{username}}</text>
-      <view class="input-section" wx:if="{{isShowInput}}">
+      <view class="nameBlock" wx:if="{{!isShowInput}}">
+        <text class="userinfo-nickname" bindtap="changeName">{{username}}</text>
+      </view>
+      <view class="nameBlock" wx:if="{{isShowInput}}">
         <input class='input_input' model:value="{{username}}" focus="auto" placeholder="请输入内容" bindinput='bindKeyInput' bindblur="onHideInput" confirm-type="send" bindconfirm="sendTextMsg" />
-        <l-button class="send_button" size="mini" bindtap="add">确定</l-button>
+        <button class="send_button" bindtap="add">确定</button>
       </view>
     </block>
   </view>

@@ -25,3 +25,16 @@
   color: #f8f9fb;
   background-color: #3a63bd;
 }
+
+.nameBlock{
+  height: 150rpx;
+  
+}
+
+.input_input{
+  text-align: center;
+}
+
+.sendButton{
+  align-items: center;
+}
