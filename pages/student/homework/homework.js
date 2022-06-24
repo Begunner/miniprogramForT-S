@@ -40,7 +40,7 @@ Page({
 
     goToDo(){
         wx.navigateTo({
-            url: '/pages/student/doHomework/doHomework',
+            url: '/pages/student/doHomework/doHomework?courseId=' + this.data.cid,
         })
     }
 })

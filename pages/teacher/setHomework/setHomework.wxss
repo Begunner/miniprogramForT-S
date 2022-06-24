@@ -1,1 +1,6 @@
 @import "../../../pages/teacher/homework/homework.wxss";
+@import "../../../pages/student/doHomework/doHomework.wxss";
+
+.dl {
+    margin-left: 540rpx
+}

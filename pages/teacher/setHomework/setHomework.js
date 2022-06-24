@@ -5,6 +5,7 @@ import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
 Page({
     data: {
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
+        hid: 0,
         cid: 0,
         index: 0,
         questions: [],
@@ -20,35 +21,34 @@ Page({
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
-
-
-
     },
-
+    fakeCallback(){},
     onLoad (option){
-        var Index = option.homeworkIndex
-        this.setData({
-            cid: option.courseId,
-            index: option.homeworkIndex
-        })
-        var courseId = option.courseId
-        let that=this;
+      this.setData({
+          index: option.homeworkIndex,
+          cid: option.courseId,
+          index: option.homeworkIndex
+      })
+      this.requestQuestions();
+    },
+    requestQuestions: function() {
+      let that=this;
         wx.request({
             url: 'http://localhost:8080/homework/get',
             method: 'GET',
             data:{
-              cid: courseId,
+              cid: that.data.cid,
               date: "",
               uid: app.globalData.uid
             },
             success: function(res){
               that.setData ({
-                questions: res.data[Index].questions
+                questions: res.data[that.data.index].questions,
+                hid: res.data[that.data.index].hid
               })
             }
         })
     },
-
     addQuestion(){
       this.setData({
         isCreating: true
@@ -76,7 +76,7 @@ Page({
     },
     setNumOfChoices(){
       this.setData({
-        
+
       })
     },
     haveSetNum(){
@@ -111,14 +111,51 @@ Page({
       })
     },
     commit(){
+      this.setData({
+        isCreating: false
+      })
+      let that = this
       wx.request({
-        url: 'url',
+        url: 'http://localhost:8080/question/add',
+            method: 'POST',
+            data:{
+              ChoiceNotBlank: that.data.isChoiceNotBlank,
+              description: that.data.description,
+              standardAnswer: that.data.answer,
+              homeworkID: that.data.hid,
+              choices: that.data.choices
+            }
       })
-      wx.navigateTo({
-        url: 'pages/teacher/homework/homework',
+      setTimeout(()=>{that.requestQuestions();}, 100);
+      //设置提交框为默认值
+      this.setData({
+        description: "",
+        choices: [],
+        answers: [],
+        answer:"",
+        havingSavedDescription: false,
+        isChoosingType: false,
+        havingChosenType: false,
+        isChoiceNotBlank: false,
+        havingSetNum: false,
+        choice:"",
+        isAddingCho: false,
       })
+    },
+    deleteQuestion:function(e){
+      let that=this;
+      var qID = e.target.dataset.index;
+      wx.request({
+        url: 'http://localhost:8080/question/delete',
+        method: "DELETE",
+        data:{
+          qid: qID
+        },
+        header:{
+          "content-type":"application/x-www-form-urlencoded"
+        }
+      })
+      
+    setTimeout(()=>{that.requestQuestions();}, 100);
     }
-
-
-
 })

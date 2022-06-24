@@ -12,7 +12,7 @@
 		<l-button class="add" type="success" size="mini">答题情况</l-button>
     	<text class="dateInformation">\n发布时间：{{item.dateStr}}\n</text>
 		<l-button class="jumpButton" bindtap="setHomework" data-index="{{index}}">修改</l-button>
-		<l-button class="jumpButton" type="error" bindtap="deleteHomework" data-index="{{index}}">删除</l-button>
+		<l-button class="jumpButton" type="error" bindtap="deleteHomework" data-index="{{item.hid}}">删除</l-button>
 	</view>
 </view>
 

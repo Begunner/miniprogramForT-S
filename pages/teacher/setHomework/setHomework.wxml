@@ -8,7 +8,7 @@
 
 <view class="createQuestion" wx:if="{{isCreating}}">
   <view class="inputDescription" wx:if="{{!havingSavedDescription}}">
-    <input class='input_input' model:value="{{description}}" focus="auto" placeholder="请输入题目描述"/>
+    <input class='input_input' model:value="{{description}}" focus="auto" placeholder="请输入题目描述" bindinput="fakeCallback"/>
     <button bindtap="saveDescription">确认</button>
   </view>
   <text wx:if="{{havingSavedDescription}}">{{description}}</text>
@@ -20,36 +20,30 @@
     <view wx:if="{{isChoiceNotBlank}}">
       <button wx:if="{{!isAddingCho}}" bindtap="addingCho">添加选项</button>
       <view wx:if="{{isAddingCho}}">
-        <input class='input_input' model:value="{{choice}}" focus="auto" placeholder="请输入选项"/>
+        <input class='input_input' model:value="{{choice}}" focus="auto" placeholder="请输入选项 " bindinput="fakeCallback"/>
         <button bindtap="isAnswer">是答案</button>
         <button bindtap="notAnswer">不是答案</button>
       </view>
       <button bindtap="commit">提交</button>
     </view>
     <view wx:if="{{!isChoiceNotBlank}}">
-      <input class='input_input' model:value="{{answer}}" focus="auto" placeholder="请输入答案"/>
+      <input class='input_input' model:value="{{answer}}" focus="auto" placeholder="请输入答案" bindinput="fakeCallback"/>
       <button bindtap="commit">提交</button>
     </view>
   </view>
   
-
-
-
   <!-- 清除所有更改，恢复默认值 -->
 </view>
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
     <text class="question">{{index+1}}. {{item.description}}</text>
-    <view wx:if="{{item.choiceNotBlank}}">
-        <l-radio-group>
-            <view wx:for="{{item.choices}}" wx:key="qid">
-                <l-radio key="{{item}}">
-                    <text class="singleChoice">{{item}}</text>
-                </l-radio>
-            </view>
-        </l-radio-group>
+
+    <view wx:if="{{item.choiceNotBlank}}" class="studentAnswers">
+      <text>答案：{{item.standardAnswer}}</text>
     </view>
     <view wx:else class="studentAnswers">
-      <input class="subjectiveAnswer"  bindinput="bindKeyInput" />
+      <text>答案：{{item.standardAnswer}}</text>
     </view>
+
+    <l-button type="error" class="dl" size="mini" bindtap="deleteQuestion" data-index="{{item.qid}}">删除</l-button>
 </view>

@@ -4,31 +4,17 @@
                 home-page="/pages/index/index">
 </l-capsule-bar>
 
-<view class="exercise" wx:for="{{exercises}}" wx:key="cid">
-    <text class="question">{{item.question}}</text>
-    <view wx:if="{{item.category=='singleObjective'}}">
-        <l-radio-group>
-            <view wx:for="{{item.choices}}" wx:key="cid">
-                <l-radio key="{{item.choiceNumber}}">
-                    <text class="singleChoice">{{item.choiceNumber}}.{{item.choice}}</text>
-                </l-radio>
-            </view>
-        </l-radio-group>
-    </view>
-    <view wx:elif="{{item.category=='multipleObjective'}}">
+<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
+    <text class="question">{{index+1}}. {{item.description}}</text>
+    <view wx:if="{{item.choiceNotBlank}}">
         <view class="checkAnswers" wx:for="{{item.choices}}" wx:key="cid">
             <checkbox value="item.choice" color="#3a63bd"/>
             <text class="multipleChoice">{{item.choiceNumber}}.{{item.choice}}</text>
         </view>
     </view>
-    <view wx:elif="{{item.category=='typingSubjective'}}">
-        <view class="studentAnswers" wx:for="{{item.answers}}" wx:key="cid">
+    <view wx:else>
+        <view class="studentAnswers" wx:key="cid">
             <input class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}"/>
-        </view>
-    </view>
-    <view wx:elif="{{item.category=='imageSubjective'}}">
-        <view class="studentImages" wx:for="{{item.answers}}" wx:key="cid">
-            <l-image-picker count="1" bind:linchange="onChangeTap" />
         </view>
     </view>
 </view>
