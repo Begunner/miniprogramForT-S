@@ -17,7 +17,7 @@ Page({
         havingSavedDescription: false,
         isChoosingType: false,
         havingChosenType: false,
-        isChoiceNotBlank: false,
+        isChoiceNotBlank: 0,
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
@@ -41,6 +41,7 @@ Page({
               uid: app.globalData.uid
             },
             success: function(res){
+              console.log(res.data[that.data.index].questions)
               that.setData ({
                 questions: res.data[that.data.index].questions,
                 hid: res.data[that.data.index].hid
@@ -61,14 +62,14 @@ Page({
     },
     setTypeSelect(){
       this.setData({
-        isChoiceNotBlank: true,
+        isChoiceNotBlank: 1,
         isChoosingType: false,
         havingChosenType: true,
       })
     },
     setTypeInput(){
       this.setData({
-        isChoiceNotBlank: false,
+        isChoiceNotBlank: 0,
         isChoosingType: false,
         havingChosenType: true
       })
@@ -118,11 +119,11 @@ Page({
         url: 'http://localhost:8080/question/add',
             method: 'POST',
             data:{
-              isChoiceNotBlank: 0,
+              isChoiceNotBlank: that.data.isChoiceNotBlank,
               description: that.data.description,
               standardAnswer: that.data.answer,
-              homeworkID: that.data.hid,
-              choices: that.data.choices
+              choices: that.data.choices,
+              homeworkID: that.data.hid
             }
       })
       setTimeout(()=>{that.requestQuestions();}, 100);
@@ -135,7 +136,7 @@ Page({
         havingSavedDescription: false,
         isChoosingType: false,
         havingChosenType: false,
-        isChoiceNotBlank: false,
+        isChoiceNotBlank: 0,
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
@@ -154,7 +155,6 @@ Page({
           "content-type":"application/x-www-form-urlencoded"
         }
       })
-      
     setTimeout(()=>{that.requestQuestions();}, 100);
     }
 })

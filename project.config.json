@@ -43,7 +43,7 @@
         "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.21.4",
+    "libVersion": "2.20.3",
     "appid": "wx81fa1f285ee1ec22",
     "projectname": "miniprogram-92",
     "editorSetting": {

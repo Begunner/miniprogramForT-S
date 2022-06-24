@@ -40,11 +40,7 @@ Page({
             }
         })
     },
-
-    add(){
-        //添加作业
-    },
-
+    
     setHomework: function (e) {
         var index = e.target.dataset.index;
         wx.redirectTo({

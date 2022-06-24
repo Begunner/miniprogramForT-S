@@ -38,8 +38,8 @@
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
     <text class="question">{{index+1}}. {{item.description}}</text>
 
-    <view wx:if="{{item.choiceNotBlank}}" class="studentAnswers">
-      <text>答案：{{item.standardAnswer}}</text>
+    <view wx:if="{{item.isChoiceNotBlank==1}}" class="studentAnswers">
+      <text>答案有：{{item.standardAnswer}}</text>
     </view>
     <view wx:else class="studentAnswers">
       <text>答案：{{item.standardAnswer}}</text>
