@@ -12,7 +12,7 @@
         <text class="userinfo-nickname" bindtap="changeName">{{username}}</text>
       </view>
       <view class="nameBlock" wx:if="{{isShowInput}}">
-        <input class='input_input' model:value="{{username}}" focus="auto" placeholder="请输入内容" bindinput='bindKeyInput' bindblur="onHideInput" confirm-type="send" bindconfirm="sendTextMsg" />
+        <input class='input_input' model:value="{{username}}" focus="auto" placeholder="请输入内容" bindinput='bindKeyInput' confirm-type="send" bindconfirm="sendTextMsg" />
         <button class="send_button" bindtap="add">确定</button>
       </view>
     </block>

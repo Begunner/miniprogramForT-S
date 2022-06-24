@@ -11,7 +11,7 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), 
     nickName: 'default',
-    username: '新同学',
+    username: 'default',
     isShowInput: false
   },
   loginHomeworkAssistant(Account){
@@ -81,13 +81,14 @@ Page({
       isShowInput:false
     })
     var that=this
+    console.log(this.username)
     wx.request({
       url: 'http://localhost:8080/user/change-name',
       method: "POST",
       data:{
-        username:that.username
+        uid: app.globalData.uid,
+        name: that.username
       }
-      
     })
   }
 })
