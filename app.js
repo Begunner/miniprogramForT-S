@@ -6,6 +6,7 @@ App({
   /*全局变量*/
   globalData: {
     uid:0,
+    username: 'default'
   },
   /*获取Capsular高度*/
   getNavigationBarHeight() {

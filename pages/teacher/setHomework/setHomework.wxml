@@ -1,8 +1,10 @@
-<l-capsule-bar  title="作业{{index}}"
+<l-capsule-bar  title="作业"
 			          status-bar-color="rgb(242, 242, 242)"
 				        title-bar-color="rgb(242, 242, 242)"
                 home-page="/pages/teacher/teacherCourse/teacherCourse">
 </l-capsule-bar>
+
+<l-button class="addHW" bindtap="addQuestion">添加题目</l-button>
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
     <text class="question">{{index+1}}. {{item.description}}</text>

@@ -10,19 +10,36 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), 
-    nickName: 'default',
-    username: 'default',
+    username: '点击修改姓名',
     isShowInput: false
   },
   loginHomeworkAssistant(Account){
+    let that=this;
     wx.request({
-      url: 'http://localhost:8080/user/get-by-account',
-      method: 'GET',
+      url: 'http://localhost:8080/user/add',
+      method: 'POST',
       data:{
         account: Account
       },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
       success: function(res){
-        app.globalData.uid = res.data.uid
+        app.globalData.uid = res.data
+        //请求name
+        wx.request({
+            url: 'http://localhost:8080/user/get-by-id',
+            method: 'GET',
+            data:{
+              uid: app.globalData.uid
+            },
+            success: function(res){
+              app.globalData.username = res.data.name
+              that.setData({
+                username: app.globalData.username
+              })
+            }
+        })
       }
     })
   },
@@ -39,8 +56,6 @@ Page({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         this.setData({
-          nickName: res.userInfo.nickName,
-          username: res.userInfo.nickName,
           userInfo: res.userInfo,
           hasUserInfo: true,
         })
@@ -71,23 +86,19 @@ Page({
     })
   },
   bindKeyInput: function(e) {
-    this.setData({
-      username: e.detail.value
-    })
+    app.globalData.username = e.detail.value
   },
   add(){
-
     this.setData({
       isShowInput:false
     })
     var that=this
-    console.log(this.username)
     wx.request({
       url: 'http://localhost:8080/user/change-name',
       method: "POST",
       data:{
         uid: app.globalData.uid,
-        name: that.username
+        name: app.globalData.username
       }
     })
   }

@@ -48,7 +48,7 @@ Page({
     setHomework: function (e) {
         var index = e.target.dataset.index;
         wx.redirectTo({
-            url: '/pages/teacher/setHomework/setHomework?homeworkIndex=' + (index+1)
+            url: '/pages/teacher/setHomework/setHomework?homeworkIndex=' + index
                   + '&courseId=' + this.cid
         })
     },

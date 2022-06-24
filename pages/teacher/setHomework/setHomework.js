@@ -7,10 +7,11 @@ Page({
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
         cid: 0,
         index: 0,
-        questions: []
+        questions: {}
     },
 
     onLoad (option){
+        var Index = option.homeworkIndex
         this.setData({
             cid: option.courseId,
             index: option.homeworkIndex
@@ -23,14 +24,17 @@ Page({
             data:{
               cid: courseId,
               date: "",
-              uid: 2
+              uid: app.globalData.uid
             },
             success: function(res){
-              console.log(res.data[option.homeworkIndex-1].questions)
-              that.setData({
-                questions: res.data[option.homeworkIndex-1].questions
+              that.setData ({
+                questions: res.data[Index].questions
               })
             }
         })
+    },
+
+    addQuestion(){
+      
     }
 })

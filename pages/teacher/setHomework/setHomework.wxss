@@ -1,1 +1,1 @@
-@import "../../../pages/student/doHomework/doHomework.wxss";
+@import "../../../pages/teacher/homework/homework.wxss";
