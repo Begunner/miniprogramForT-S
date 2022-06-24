@@ -4,13 +4,20 @@
                 home-page="/pages/teacher/teacherCourse/teacherCourse">
 </l-capsule-bar>
 
-<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
-    <text class="question">{{index+1}}. {{item.description}}</text>
+<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index" wx:for-item="question">
+    <text class="question">{{index+1}}. {{question.description}}</text>
 
-    <view wx:if="{{item.choiceNotBlank}}" class="studentAnswers">
-      <text>答案：{{item.standardAnswer}}</text>
+    <view wx:if="{{question.choiceNotBlank}}" class="studentAnswers">
+      <text>答案：{{question.standardAnswer}}</text>
     </view>
     <view wx:else class="studentAnswers">
-      <text>答案：{{item.standardAnswer}}</text>
+      <text>答案：{{question.standardAnswer}}</text>
+    </view>
+
+    <view  wx:for="{{correctRates}}" wx:key="id">
+      <view wx:if="{{item.qid==question.qid}}">
+        <text class="rate" wx:if="{{item.correctRate!='NaN'}}">本题的回答正确率为：{{item.correctRate}}</text>
+        <text class="fail" wx:else>本题还没有人作答</text>
+      </view>
     </view>
 </view>

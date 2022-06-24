@@ -8,7 +8,8 @@ Page({
         hid: 0,
         cid: 0,
         index: 0,
-        questions: []
+        questions: [],
+        correctRates: []
     },
     onLoad (option){
       this.setData({
@@ -31,6 +32,23 @@ Page({
               that.setData ({
                 questions: res.data[that.data.index].questions,
                 hid: res.data[that.data.index].hid
+              })
+              that.requestRate(res.data[that.data.index].hid)
+            }
+        })
+    },
+    requestRate: function(HID) {
+      let that=this;
+        wx.request({
+            url: 'http://localhost:8080/homework/get-right-rate',
+            method: 'GET',
+            data:{
+              hid: HID
+            },
+            success: function(res){
+              console.log(res.data)
+              that.setData ({
+                correctRates:res.data
               })
             }
         })

@@ -1,2 +1,10 @@
 @import "../../../pages/teacher/homework/homework.wxss";
 @import "../../../pages/student/doHomework/doHomework.wxss";
+
+.rate {
+    color: green
+}
+
+.fail {
+    color: red
+}
