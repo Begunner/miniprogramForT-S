@@ -38,6 +38,14 @@ Page({
         })
     },
 
+    doHomework: function (e) {
+        var index = e.target.dataset.index;
+        wx.redirectTo({
+            url: '/pages/student/doHomework/doHomework?homeworkIndex=' + index
+                  + '&courseId=' + this.cid
+        })
+    },
+
     goToDo(){
         wx.navigateTo({
             url: '/pages/student/doHomework/doHomework?courseId=' + this.data.cid,

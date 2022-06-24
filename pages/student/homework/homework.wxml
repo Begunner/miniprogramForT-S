@@ -10,7 +10,7 @@
 		<text class="dateInformation" wx:if="{{item.hascommited}}">已提交</text>
 		<text class="doneInformation" wx:else>未提交</text>
     	<text class="dateInformation">\n发布时间：{{item.dateStr}}\n</text>
-		<l-button class="jumpButton" data-index="{{item.hid}}">答题</l-button>
+		<l-button class="jumpButton" bindtap="doHomework" data-index="{{index}}" disabled="{{item.hascommited}}">答题</l-button>
 		<l-button class="jumpButton" type="success" data-index="{{item.hid}}" wx:if="{{item.hascommited}}">查看答案</l-button>
 	</view>
 </view>

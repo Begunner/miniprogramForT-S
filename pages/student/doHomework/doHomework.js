@@ -15,6 +15,7 @@ Page({
       })
       this.requestQuestions();
     },
+    fakeCallback(){},
     requestQuestions: function() {
       let that=this;
         wx.request({

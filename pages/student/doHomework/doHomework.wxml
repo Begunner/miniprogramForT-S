@@ -14,7 +14,7 @@
     </view>
     <view wx:else>
         <view class="studentAnswers" wx:key="cid">
-            <input class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}"/>
+            <textarea class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}" bindinput="fakeCallback"></textarea>
         </view>
     </view>
 </view>
