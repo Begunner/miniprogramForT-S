@@ -9,7 +9,7 @@
 <view class="courseList">
 	<view class="course" wx:for="{{homeworkList}}" wx:key="id" wx:for-index="index">
 		<text class="courseName">作业{{index + 1}}</text>
-		<l-button class="add" type="success" size="mini">答题情况</l-button>
+		<l-button class="add" type="success" size="mini" bindtap="seeStatics" data-index="{{index}}">答题情况</l-button>
     	<text class="dateInformation">\n发布时间：{{item.dateStr}}\n</text>
 		<l-button class="jumpButton" bindtap="setHomework" data-index="{{index}}">修改</l-button>
 		<l-button class="jumpButton" type="error" bindtap="deleteHomework" data-index="{{item.hid}}">删除</l-button>

@@ -53,9 +53,11 @@ Page({
         })
     },
     
-    seeStatics(){
+    seeStatics: function (e) {
+        var index = e.target.dataset.index;
         wx.navigateTo({
-            url: '/pages/teacher/HwStatics/HwStatics',
+            url: '/pages/teacher/HwStatics/HwStatics?homeworkIndex=' + index
+            + '&courseId=' + this.cid
         })
     },
 

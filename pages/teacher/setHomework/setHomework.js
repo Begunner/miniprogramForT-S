@@ -25,7 +25,6 @@ Page({
     fakeCallback(){},
     onLoad (option){
       this.setData({
-          index: option.homeworkIndex,
           cid: option.courseId,
           index: option.homeworkIndex
       })
@@ -119,7 +118,7 @@ Page({
         url: 'http://localhost:8080/question/add',
             method: 'POST',
             data:{
-              ChoiceNotBlank: that.data.isChoiceNotBlank,
+              isChoiceNotBlank: 0,
               description: that.data.description,
               standardAnswer: that.data.answer,
               homeworkID: that.data.hid,

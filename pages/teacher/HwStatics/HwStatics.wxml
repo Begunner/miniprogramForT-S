@@ -1,1 +1,16 @@
-<text>用于观看学生信息统计</text>
+<l-capsule-bar  title="作业完成统计"
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/teacher/teacherCourse/teacherCourse">
+</l-capsule-bar>
+
+<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
+    <text class="question">{{index+1}}. {{item.description}}</text>
+
+    <view wx:if="{{item.choiceNotBlank}}" class="studentAnswers">
+      <text>答案：{{item.standardAnswer}}</text>
+    </view>
+    <view wx:else class="studentAnswers">
+      <text>答案：{{item.standardAnswer}}</text>
+    </view>
+</view>
