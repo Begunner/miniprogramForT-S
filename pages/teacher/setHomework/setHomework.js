@@ -7,7 +7,22 @@ Page({
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
         cid: 0,
         index: 0,
-        questions: {}
+        questions: [],
+        isCreating: false,
+        description: "",
+        choices: [],
+        answers: [],
+        answer:"",
+        havingSavedDescription: false,
+        isChoosingType: false,
+        havingChosenType: false,
+        isChoiceNotBlank: false,
+        havingSetNum: false,
+        choice:"",
+        isAddingCho: false,
+
+
+
     },
 
     onLoad (option){
@@ -35,6 +50,75 @@ Page({
     },
 
     addQuestion(){
-      
+      this.setData({
+        isCreating: true
+      })
+    },
+    saveDescription(){
+      this.setData({
+        havingSavedDescription: true,
+        isChoosingType: true
+      })
+    },
+    setTypeSelect(){
+      this.setData({
+        isChoiceNotBlank: true,
+        isChoosingType: false,
+        havingChosenType: true,
+      })
+    },
+    setTypeInput(){
+      this.setData({
+        isChoiceNotBlank: false,
+        isChoosingType: false,
+        havingChosenType: true
+      })
+    },
+    setNumOfChoices(){
+      this.setData({
+        
+      })
+    },
+    haveSetNum(){
+      this.setData({havingSetNum:true})
+    },
+    isAnswer(){
+      var ans=this.data.answers
+      var cho=this.data.choices
+      ans.push(this.data.choice)
+      cho.push(this.data.choice)
+      this.setData({
+        answers:ans,
+        choices:cho
+      })
+      this.stopAdding()
+    },
+    notAnswer(){
+      var cho=this.data.choices
+      cho.push(this.data.choice)
+      this.setData({
+        choices:cho
+      })
+      this.stopAdding()
+    },
+    addingCho(){
+      this.setData({isAddingCho:true})
+    },
+    stopAdding(){
+      this.setData({
+        isAddingCho:false,
+        choice:""
+      })
+    },
+    commit(){
+      wx.request({
+        url: 'url',
+      })
+      wx.navigateTo({
+        url: 'pages/teacher/homework/homework',
+      })
     }
+
+
+
 })
