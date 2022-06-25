@@ -9,7 +9,8 @@ Page({
         cid: 0,
         hid: 0,
         questions: [],
-        answers: {51:"你的回答很重要"}
+        answers: [{51:"你的回答很重要"}],
+        answer:""
     },
     onLoad (option){
       this.setData({
@@ -53,6 +54,27 @@ Page({
     })
       wx.redirectTo({
         url: '/pages/student/homework/homework?courseId=' + that.data.cid
+      })
+    },
+    commitAnAnswer(e){
+      var answs=this.data.answers
+      var answer=this.data.answer
+      var k=e.currentTarget.dataset.index
+      answs.push({[k]:answer})
+      this.setData({
+        answers:answs
+      })
+    },
+    changeAnAnswer(e){
+      var values=e.detail.value
+      var str=""
+      for(var i=0;i<values.length;i++){
+        str+=values[i]
+        if(i!=values.length-1)
+          str+="; "
+      }
+      this.setData({
+        answer:str
       })
     }
 })
