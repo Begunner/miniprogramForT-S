@@ -9,8 +9,10 @@ Page({
         cid: 0,
         hid: 0,
         questions: [],
-        answers: [{51:"你的回答很重要"}],
-        answer:""
+        answers: [],
+        answer:"",
+        //专门用来存input框的内容的东西
+        input: ""
     },
     onLoad (option){
       this.setData({
@@ -65,16 +67,30 @@ Page({
         answers:answs
       })
     },
+    commitString(e){
+      var answs=this.data.answers
+      var input = this.data.input
+      var k=e.target.dataset.index
+      answs.push({[k]:input})
+      this.setData({
+        answers:answs
+      })
+    },
     changeAnAnswer(e){
       var values=e.detail.value
+      console.log(values)
       var str=""
       for(var i=0;i<values.length;i++){
         str+=values[i]
-        if(i!=values.length-1)
-          str+="; "
+        str+="; "
       }
       this.setData({
         answer:str
+      })
+    },
+    getInputValue(e){
+      this.setData({
+        input: e.detail.value
       })
     }
 })

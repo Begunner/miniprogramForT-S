@@ -5,6 +5,7 @@ import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
 Page({
     data: {
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
+        alphabet:['A','B','C','D','E','F','G','H','I','J','K'],
         hid: 0,
         cid: 0,
         index: 0,
@@ -21,6 +22,8 @@ Page({
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
+        //答案号数
+        answerNumber: 0
     },
     fakeCallback(){},
     onLoad (option){
@@ -89,7 +92,8 @@ Page({
       this.setData({
         answers:ans,
         choices:cho,
-        answer: this.data.answer + this.data.choice + '; '
+        answer: this.data.answer + this.data.alphabet[this.data.answerNumber] + '; ',
+        answerNumber: this.data.answerNumber + 1
       })
       this.stopAdding()
     },
@@ -140,6 +144,7 @@ Page({
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
+        answerNumber: 0
       })
     },
     deleteQuestion:function(e){

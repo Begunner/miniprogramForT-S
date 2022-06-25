@@ -5,22 +5,22 @@
 </l-capsule-bar>
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
-<!--qid用data-index="{{item.qid}}"获得-->
     <text class="question">{{index+1}}. {{item.description}}</text>
     <view wx:if="{{item.isChoiceNotBlank==1}}">
     <checkbox-group bindchange="changeAnAnswer">
         <view class="checkAnswers" wx:for="{{item.choices}}" wx:key="cid" wx:for-index="awIndex">
-            <checkbox value="{{awIndex}}" color="#3a63bd"/>
+            <checkbox value="{{alphabet[awIndex]}}" color="#3a63bd"/>
             <text class="multipleChoice">{{alphabet[awIndex]}}.{{item}}</text>
         </view>
-        <button bindtap="commitAnAnswer" data-index="{{item.qid}}">确认</button>
+        <button bindtap="commitAnAnswer" data-index="{{item.index}}">确认</button>
     </checkbox-group>
     </view>
     
     <view wx:else>
         <view class="studentAnswers" wx:key="cid">
-            <input class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}" bindinput="fakeCallback" />
+            <input class="subjectiveAnswer"  bindinput='getInputValue' placeholder="解答：{{item.answer}}" name="answerInput"></input>
         </view>
+        <button formType="submit" data-index="{{item.qid}}" bindtap="commitString">确认</button>
     </view>
 </view>
 

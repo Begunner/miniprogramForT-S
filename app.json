@@ -8,7 +8,8 @@
         "pages/teacher/teacherCourse/teacherCourse",
         "pages/teacher/homework/homework",
         "pages/teacher/HwStatics/HwStatics",
-        "pages/teacher/setHomework/setHomework"
+        "pages/teacher/setHomework/setHomework",
+        "pages/student/seeAnswers/seeAnswers"
     ],
     "window": {
         "backgroundTextStyle": "light",
