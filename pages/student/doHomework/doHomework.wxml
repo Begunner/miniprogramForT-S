@@ -6,15 +6,15 @@
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
     <text class="question">{{index+1}}. {{item.description}}</text>
-    <view wx:if="{{item.choiceNotBlank}}">
-        <view class="checkAnswers" wx:for="{{item.choices}}" wx:key="cid">
+    <view wx:if="{{item.isChoiceNotBlank==1}}">
+        <view class="checkAnswers" wx:for="{{item.choices}}" wx:key="cid" wx:for-index="awIndex">
             <checkbox value="item.choice" color="#3a63bd"/>
-            <text class="multipleChoice">{{item.choiceNumber}}.{{item.choice}}</text>
+            <text class="multipleChoice">{{alphabet[awIndex]}}.{{item}}</text>
         </view>
     </view>
     <view wx:else>
         <view class="studentAnswers" wx:key="cid">
-            <textarea class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}" bindinput="fakeCallback"></textarea>
+            <input class="subjectiveAnswer"  bindinput="bindKeyInput" placeholder="解答：{{item.answer}}" bindinput="fakeCallback" />
         </view>
     </view>
 </view>

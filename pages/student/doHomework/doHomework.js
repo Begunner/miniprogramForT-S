@@ -5,7 +5,7 @@ import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
 Page({
     data: {
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
-        
+        alphabet:['A','B','C','D','E','F','G','H','I','J','K']
     },
     onLoad (option){
       this.setData({
