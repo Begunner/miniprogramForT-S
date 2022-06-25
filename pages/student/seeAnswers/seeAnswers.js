@@ -10,7 +10,8 @@ Page({
         hid: 0,
         index: 0,
         questions: [],
-        studentAnswers: {}
+        studentAnswers: {},
+        checkAnswers: {}
     },
     onLoad (option){
       this.setData({
@@ -49,6 +50,20 @@ Page({
                   })
                 }
             })
+            wx.request({
+              url: 'http://localhost:8080/homework/check-answers',
+              method: 'GET',
+              data:{
+                hid: that.data.hid,
+                uid: app.globalData.uid
+              },
+              success: function(res){
+                console.log(res.data)
+                that.setData({
+                  checkAnswers: res.data
+                })
+              }
+          })
             }
         })
     },
