@@ -1,16 +1,17 @@
 <l-capsule-bar  title="作业"
 			          status-bar-color="rgb(242, 242, 242)"
 				        title-bar-color="rgb(242, 242, 242)"
-                home-page="/pages/teacher/teacherCourse/teacherCourse">
+                home-page="/pages/student/studentCourse/studentCourse">
 </l-capsule-bar>
 
 <view class="courseList">
 	<view class="course" wx:for="{{homeworkList}}" wx:key="cid" wx:for-index="index">
 		<text class="courseName">作业{{index + 1}}</text>
-		<text class="dateInformation" wx:if="{{item.hascommited}}">已提交</text>
+		<text class="doneInformation" wx:if="{{item.hasSubmitted}}">已提交</text>
 		<text class="doneInformation" wx:else>未提交</text>
     	<text class="dateInformation">\n发布时间：{{item.dateStr}}\n</text>
-		<l-button class="jumpButton" bindtap="doHomework" data-index="{{index}}" disabled="{{item.hascommited}}">答题</l-button>
-		<l-button class="jumpButton" type="success" data-index="{{item.hid}}" wx:if="{{item.hascommited}}">查看答案</l-button>
+		<l-button class="jumpButton" wx:if="{{!item.hasSubmitted}}" bindtap="doHomework" data-index="{{index}}">答题</l-button>
+		<l-button class="jumpButton" wx:else disabled="{{true}}">答题</l-button>
+		<l-button class="jumpButton" type="success" data-index="{{index}}" wx:if="{{item.hasSubmitted}}" bindtap="seeAnswers">查看答案</l-button>
 	</view>
 </view>

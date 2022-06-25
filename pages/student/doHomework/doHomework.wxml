@@ -1,10 +1,11 @@
 <l-capsule-bar  title="作业"
 			    status-bar-color="rgb(242, 242, 242)"
 				title-bar-color="rgb(242, 242, 242)"
-                home-page="/pages/index/index">
+                home-page="/pages/student/studentCourse/studentCourse">
 </l-capsule-bar>
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
+<!--qid用data-index="{{item.qid}}"获得-->
     <text class="question">{{index+1}}. {{item.description}}</text>
     <view wx:if="{{item.isChoiceNotBlank==1}}">
         <view class="checkAnswers" wx:for="{{item.choices}}" wx:key="cid" wx:for-index="awIndex">
@@ -19,4 +20,4 @@
     </view>
 </view>
 
-<l-button class="submit">提交</l-button>
+<l-button class="submit" bindtap="submitHomework">提交</l-button>

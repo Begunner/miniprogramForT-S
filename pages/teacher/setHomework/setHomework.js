@@ -41,7 +41,6 @@ Page({
               uid: app.globalData.uid
             },
             success: function(res){
-              console.log(res.data[that.data.index].questions)
               that.setData ({
                 questions: res.data[that.data.index].questions,
                 hid: res.data[that.data.index].hid
@@ -89,7 +88,8 @@ Page({
       cho.push(this.data.choice)
       this.setData({
         answers:ans,
-        choices:cho
+        choices:cho,
+        answer: this.data.answer + this.data.choice + '; '
       })
       this.stopAdding()
     },
@@ -121,7 +121,7 @@ Page({
             data:{
               isChoiceNotBlank: that.data.isChoiceNotBlank,
               description: that.data.description,
-              standardAnswer: that.data.answer,
+              standardAnswer: !that.data.isChoiceNotBlank?that.data.answer:that.data.answer.substring(0, that.data.answer.length-2),
               choices: that.data.choices,
               homeworkID: that.data.hid
             }

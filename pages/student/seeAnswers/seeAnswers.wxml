@@ -1,2 +1,23 @@
-<!--pages/student/seeAnswers/seeAnswers.wxml-->
-<text>pages/student/seeAnswers/seeAnswers.wxml</text>
+<l-capsule-bar  title="作业"
+			          status-bar-color="rgb(242, 242, 242)"
+				        title-bar-color="rgb(242, 242, 242)"
+                home-page="/pages/student/studentCourse/studentCourse">
+</l-capsule-bar>
+
+<view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index" wx:for-item="question">
+    <text class="question">{{index+1}}. {{question.description}}</text>
+
+    <view wx:if="{{question.choiceNotBlank}}" class="studentAnswers">
+      <text>答案：{{question.standardAnswer}}</text>
+    </view>
+    <view wx:else class="studentAnswers">
+      <text>答案：{{question.standardAnswer}}</text>
+    </view>
+
+    <view  wx:for="{{studentAnswers}}" wx:key="id">
+      <view wx:if="{{item.answers.key==question.qid}}">
+        <text class="rate" wx:if="{{item.correctRate!='NaN'}}">本题的回答正确率为：{{item.correctRate}}</text>
+        <text class="fail" wx:else>本题还没有人作答</text>
+      </view>
+    </view>
+</view>

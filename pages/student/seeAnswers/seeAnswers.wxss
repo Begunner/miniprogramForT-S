@@ -1,1 +1,2 @@
-/* pages/student/seeAnswers/seeAnswers.wxss */
+@import "../../../pages/teacher/homework/homework.wxss";
+@import "../../../pages/student/doHomework/doHomework.wxss";

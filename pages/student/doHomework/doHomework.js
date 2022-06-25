@@ -5,13 +5,16 @@ import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
 Page({
     data: {
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
-        alphabet:['A','B','C','D','E','F','G','H','I','J','K']
+        alphabet:['A','B','C','D','E','F','G','H','I','J','K'],
+        cid: 0,
+        hid: 0,
+        questions: [],
+        answers: {51:"你的回答很重要"}
     },
     onLoad (option){
       this.setData({
           index: option.homeworkIndex,
-          cid: option.courseId,
-          index: option.homeworkIndex
+          cid: option.courseId
       })
       this.requestQuestions();
     },
@@ -33,5 +36,23 @@ Page({
               })
             }
         })
+    },
+    submitHomework(){
+      let that = this
+      wx.request({
+        url: 'http://localhost:8080/homework/submit',
+        method: 'POST',
+        data:{
+          hid: that.data.hid,
+          uid: app.globalData.uid,
+          answers: that.data.answers
+        },
+        header: {
+          "Content-Type": "application/json"
+        }
+    })
+      wx.redirectTo({
+        url: '/pages/student/homework/homework?courseId=' + that.data.cid
+      })
     }
 })

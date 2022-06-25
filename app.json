@@ -8,8 +8,7 @@
         "pages/teacher/teacherCourse/teacherCourse",
         "pages/teacher/homework/homework",
         "pages/teacher/HwStatics/HwStatics",
-        "pages/teacher/setHomework/setHomework",
-        "pages/teacher/hwCorrection/hwCorrection"
+        "pages/teacher/setHomework/setHomework"
     ],
     "window": {
         "backgroundTextStyle": "light",

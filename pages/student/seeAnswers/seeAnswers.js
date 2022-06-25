@@ -1,66 +1,73 @@
-// pages/student/seeAnswers/seeAnswers.js
+const app = getApp()
+
+import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
+
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
+        alphabet:['A','B','C','D','E','F','G','H','I','J','K'],
+        cid: 0,
+        hid: 0,
+        index: 0,
+        questions: [],
+        studentAnswers: {}
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
+    onLoad (option){
+      this.setData({
+          index: option.homeworkIndex,
+          cid: option.courseId
+      })
+      this.requestQuestions();
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    fakeCallback(){},
+    requestQuestions: function() {
+      let that=this;
+        wx.request({
+            url: 'http://localhost:8080/homework/get',
+            method: 'GET',
+            data:{
+              cid: that.data.cid,
+              date: "",
+              uid: app.globalData.uid
+            },
+            success: function(res){
+              that.setData ({
+                questions: res.data[that.data.index].questions,
+                hid: res.data[that.data.index].hid
+              })
+              wx.request({
+                url: 'http://localhost:8080/homework/get-answers',
+                method: 'GET',
+                data:{
+                  hid: that.data.hid,
+                  uid: app.globalData.uid
+                },
+                success: function(res){
+                  console.log(res.data)
+                  that.setData({
+                    studentAnswers: res.data
+                  })
+                }
+            })
+            }
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    submitHomework(){
+      let that = this
+      wx.request({
+        url: 'http://localhost:8080/homework/submit',
+        method: 'POST',
+        data:{
+          hid: that.data.hid,
+          uid: app.globalData.uid,
+          answers: that.data.answers
+        },
+        header: {
+          "Content-Type": "application/json"
+        }
+    })
+      wx.redirectTo({
+        url: '/pages/student/homework/homework?courseId=' + that.data.cid
+      })
     }
 })

@@ -48,7 +48,14 @@ Page({
 
     goToDo(){
         wx.navigateTo({
-            url: '/pages/student/doHomework/doHomework?courseId=' + this.data.cid,
+            url: '/pages/student/doHomework/doHomework?courseId=' + this.data.cid
+        })
+    },
+
+    seeAnswers: function (e) {
+        var index = e.target.dataset.index;
+        wx.navigateTo({
+            url: '/pages/student/seeAnswers/seeAnswers?homeworkIndex=' + index + '&courseId=' + this.cid
         })
     }
 })
