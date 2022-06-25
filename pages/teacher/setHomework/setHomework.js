@@ -101,7 +101,8 @@ Page({
       var cho=this.data.choices
       cho.push(this.data.choice)
       this.setData({
-        choices:cho
+        choices:cho,
+        answerNumber: this.data.answerNumber + 1
       })
       this.stopAdding()
     },

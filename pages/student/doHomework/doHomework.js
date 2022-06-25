@@ -9,7 +9,7 @@ Page({
         cid: 0,
         hid: 0,
         questions: [],
-        answers: [],
+        answers: {},
         answer:"",
         //专门用来存input框的内容的东西
         input: ""
@@ -62,7 +62,7 @@ Page({
       var answs=this.data.answers
       var answer=this.data.answer
       var k=e.currentTarget.dataset.index
-      answs.push({[k]:answer})
+      answs[k] = answer
       this.setData({
         answers:answs
       })
@@ -71,18 +71,19 @@ Page({
       var answs=this.data.answers
       var input = this.data.input
       var k=e.target.dataset.index
-      answs.push({[k]:input})
+      answs[k] = input
       this.setData({
         answers:answs
       })
     },
     changeAnAnswer(e){
       var values=e.detail.value
-      console.log(values)
       var str=""
       for(var i=0;i<values.length;i++){
         str+=values[i]
-        str+="; "
+        if(i<values.length-1){
+          str+="; "
+        }
       }
       this.setData({
         answer:str

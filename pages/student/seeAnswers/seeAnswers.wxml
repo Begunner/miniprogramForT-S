@@ -14,10 +14,8 @@
       <text>答案：{{question.standardAnswer}}</text>
     </view>
 
-    <view  wx:for="{{studentAnswers}}" wx:key="id">
-      <view wx:if="{{item.answers.key==question.qid}}">
-        <text class="rate" wx:if="{{item.correctRate!='NaN'}}">本题的回答正确率为：{{item.correctRate}}</text>
-        <text class="fail" wx:else>本题还没有人作答</text>
-      </view>
+    <text wx:if="{{checkAnswers.results[question.qid+'']==1}}" class="right">回答正确</text>
+    <view  class="wrong"  wx:else>
+      <text>回答错误\n我的作答: {{studentAnswers.answers[question.qid+'']}}</text>
     </view>
 </view>

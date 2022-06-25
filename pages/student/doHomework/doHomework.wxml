@@ -12,7 +12,7 @@
             <checkbox value="{{alphabet[awIndex]}}" color="#3a63bd"/>
             <text class="multipleChoice">{{alphabet[awIndex]}}.{{item}}</text>
         </view>
-        <button bindtap="commitAnAnswer" data-index="{{item.index}}">确认</button>
+        <button bindtap="commitAnAnswer" data-index="{{item.qid}}">确认</button>
     </checkbox-group>
     </view>
     
