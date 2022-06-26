@@ -6,6 +6,9 @@
 
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index" wx:for-item="question">
     <text class="question">{{index+1}}. {{question.description}}</text>
+    <view class="checkAnswers" wx:for="{{question.choices}}" wx:key="cid" wx:for-index="awIndex">
+      <text class="multipleChoice">{{alphabet[awIndex]}}.{{item}}</text>
+    </view>
 
     <view wx:if="{{question.choiceNotBlank}}" class="studentAnswers">
       <text>答案：{{question.standardAnswer}}</text>

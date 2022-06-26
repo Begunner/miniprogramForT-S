@@ -163,7 +163,8 @@ Page({
         havingSetNum: false,
         choice:"",
         isAddingCho: false,
-        answerNumber: 0
+        answerNumber: 0,
+        requestChoices: []
       })
     },
     deleteQuestion:function(e){

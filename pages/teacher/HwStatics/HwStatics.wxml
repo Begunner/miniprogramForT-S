@@ -7,6 +7,10 @@
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index" wx:for-item="question">
     <text class="question">{{index+1}}. {{question.description}}</text>
 
+    <view wx:for="{{requestChoices[index]}}" wx:key="chid" wx:for-index="choiceIndex" class="checkAnswers">
+      <text>{{alphabet[choiceIndex]}}. {{item.content}}</text>
+    </view>
+
     <view wx:if="{{question.choiceNotBlank}}" class="studentAnswers">
       <text>答案：{{question.standardAnswer}}</text>
     </view>
@@ -16,7 +20,11 @@
 
     <view  wx:for="{{correctRates}}" wx:key="id">
       <view wx:if="{{item.qid==question.qid}}">
-        <text class="rate" wx:if="{{item.correctRate!='NaN'}}">本题的回答正确率为：{{item.correctRate}}</text>
+        <view class="rate" wx:if="{{item.correctRate!='NaN'}}">
+          <text>本题的回答正确率为：</text>
+          <text class="rate" wx:if="{{item.correctNum==item.totalNum}}">{{item.correctNum}}/{{item.totalNum}}</text>
+          <text class="fail" wx:else>{{item.correctNum}}/{{item.totalNum}}</text>
+        </view>
         <text class="fail" wx:else>本题还没有人作答</text>
       </view>
     </view>

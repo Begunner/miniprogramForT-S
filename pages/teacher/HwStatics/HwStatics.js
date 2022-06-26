@@ -5,11 +5,14 @@ import deviceUtil from "../../../miniprogram_npm/lin-ui/utils/device-util"
 Page({
     data: {
         capsuleBarHeight: deviceUtil.getNavigationBarHeight(),
+        alphabet:['A','B','C','D','E','F','G','H','I','J','K'],
         hid: 0,
         cid: 0,
         index: 0,
         questions: [],
-        correctRates: []
+        correctRates: [],
+        //返回的选项
+        requestChoices: []
     },
     onLoad (option){
       this.setData({
@@ -34,6 +37,22 @@ Page({
                 hid: res.data[that.data.index].hid
               })
               that.requestRate(res.data[that.data.index].hid)
+              for(var i=0;i<that.data.questions.length;i++){
+                wx.request({
+                  url: 'http://localhost:8080/question/get-all-choices',
+                      method: 'GET',
+                      data:{
+                        qid: that.data.questions[i].qid
+                      }, 
+                      success: function(res){
+                        var RC = that.data.requestChoices
+                        RC.push(res.data)
+                        that.setData({
+                          requestChoices: RC
+                        })
+                      }
+                })
+              }
             }
         })
     },

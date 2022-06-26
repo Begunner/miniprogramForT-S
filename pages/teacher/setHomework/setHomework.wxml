@@ -38,7 +38,7 @@
 <view class="exercise" wx:for="{{questions}}" wx:key="cid" wx:for-index="index">
     <text class="question">{{index+1}}. {{item.description}}</text>
 
-    <view wx:for="{{requestChoices[index]}}" wx:key="chid" wx:for-index="choiceIndex">
+    <view wx:for="{{requestChoices[index]}}" wx:key="chid" wx:for-index="choiceIndex" class="checkAnswers">
       <text>{{alphabet[choiceIndex]}}. {{item.content}}</text>
     </view>
 

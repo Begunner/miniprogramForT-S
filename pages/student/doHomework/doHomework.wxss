@@ -25,7 +25,7 @@
 }
 
 .studentAnswers {
-    margin: 5px;
+    margin: 2px;
     padding: 3px;
     box-shadow: 2rpx 2rpx 5rpx grey;
 }
