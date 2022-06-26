@@ -28,3 +28,7 @@
 .addHW {
     margin-left: 550rpx;
 }
+
+.choicesList{
+    margin:3px
+}

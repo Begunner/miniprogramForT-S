@@ -23,7 +23,9 @@ Page({
         choice:"",
         isAddingCho: false,
         //答案号数
-        answerNumber: 0
+        answerNumber: 0,
+        //返回的选项
+        requestChoices: []
     },
     fakeCallback(){},
     onLoad (option){
@@ -48,6 +50,22 @@ Page({
                 questions: res.data[that.data.index].questions,
                 hid: res.data[that.data.index].hid
               })
+              for(var i=0;i<that.data.questions.length;i++){
+                wx.request({
+                  url: 'http://localhost:8080/question/get-all-choices',
+                      method: 'GET',
+                      data:{
+                        qid: that.data.questions[i].qid
+                      }, 
+                      success: function(res){
+                        var RC = that.data.requestChoices
+                        RC.push(res.data)
+                        that.setData({
+                          requestChoices: RC
+                        })
+                      }
+                })
+              }
             }
         })
     },
